@@ -182,8 +182,8 @@ class PinCode extends React.PureComponent<IProps, IState> {
       attemptFailed: true,
       changeScreen: false
     });
-    this.doShake();
-    await delay(this.props.delayBetweenAttempts);
+    // this.doShake();
+    // await delay(this.props.delayBetweenAttempts);
     this.newAttempt();
   };
 
@@ -709,10 +709,10 @@ class PinCode extends React.PureComponent<IProps, IState> {
               ]}>
               {this.props.buttonNumberComponent
                 ? this.props.buttonNumberComponent(
-                  "p",
+                  "3",
                   this.onPressButtonNumber
                 )
-                : this.renderButtonNumber("p")}
+                : this.renderButtonNumber("2")}
             </Col>
             <Col
               style={[
