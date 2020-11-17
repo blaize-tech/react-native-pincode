@@ -694,14 +694,15 @@ class PinCode extends React.PureComponent<IProps, IState> {
             ]}>
             <Col
               style={[
-                styles.colEmpty,
-                this.props.styleEmptyColumn
+                // styles.colEmpty,
+                // this.props.styleEmptyColumn
+                styles.colButtonCircle,
+                this.props.styleColumnButtons
               ]}>
-              {/*{this.props.emptyColumnComponent */}
-              {/*  ? this.props.emptyColumnComponent(this.props.launchTouchID)*/}
-              {/*  : null*/}
-              {/*}*/}
-              this.props.emptyColumnComponent(this.props.launchTouchID)
+              {this.props.emptyColumnComponent
+                ? this.props.emptyColumnComponent(this.props.launchTouchID)
+                : null
+              }
               <Text>sdsdfsdf</Text>
             </Col>
             <Col
