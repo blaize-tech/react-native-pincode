@@ -26,8 +26,8 @@ class PinCode extends React.PureComponent {
                 attemptFailed: true,
                 changeScreen: false
             });
-            this.doShake();
-            await delay_1.default(this.props.delayBetweenAttempts);
+            // this.doShake();
+            // await delay(this.props.delayBetweenAttempts);
             this.newAttempt();
         };
         this.newAttempt = async () => {
@@ -388,8 +388,8 @@ class PinCode extends React.PureComponent {
                             styles.colButtonCircle,
                             this.props.styleColumnButtons
                         ] }, this.props.buttonNumberComponent
-                        ? this.props.buttonNumberComponent("p", this.onPressButtonNumber)
-                        : this.renderButtonNumber("p")),
+                        ? this.props.buttonNumberComponent("3", this.onPressButtonNumber)
+                        : this.renderButtonNumber("2")),
                     React.createElement(react_native_easy_grid_1.Col, { style: [
                             styles.colButtonCircle,
                             this.props.styleColumnButtons
