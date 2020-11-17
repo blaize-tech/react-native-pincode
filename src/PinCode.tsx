@@ -182,8 +182,8 @@ class PinCode extends React.PureComponent<IProps, IState> {
       attemptFailed: true,
       changeScreen: false
     });
-    this.doShake();
-    await delay(this.props.delayBetweenAttempts);
+    // this.doShake();
+    // await delay(this.props.delayBetweenAttempts);
     this.newAttempt();
   };
 

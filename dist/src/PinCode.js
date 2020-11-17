@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PinStatus = void 0;
 const delay_1 = require("./delay");
 const colors_1 = require("./design/colors");
 const grid_1 = require("./design/grid");
@@ -27,8 +26,8 @@ class PinCode extends React.PureComponent {
                 attemptFailed: true,
                 changeScreen: false
             });
-            this.doShake();
-            await delay_1.default(this.props.delayBetweenAttempts);
+            // this.doShake();
+            // await delay(this.props.delayBetweenAttempts);
             this.newAttempt();
         };
         this.newAttempt = async () => {
