@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PinStatus = void 0;
 const delay_1 = require("./delay");
 const colors_1 = require("./design/colors");
 const grid_1 = require("./design/grid");
@@ -389,8 +388,8 @@ class PinCode extends React.PureComponent {
                             styles.colButtonCircle,
                             this.props.styleColumnButtons
                         ] }, this.props.buttonNumberComponent
-                        ? this.props.buttonNumberComponent("0", this.onPressButtonNumber)
-                        : this.renderButtonNumber("0")),
+                        ? this.props.buttonNumberComponent("p", this.onPressButtonNumber)
+                        : this.renderButtonNumber("p")),
                     React.createElement(react_native_easy_grid_1.Col, { style: [
                             styles.colButtonCircle,
                             this.props.styleColumnButtons
