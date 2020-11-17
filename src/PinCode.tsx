@@ -709,10 +709,10 @@ class PinCode extends React.PureComponent<IProps, IState> {
               ]}>
               {this.props.buttonNumberComponent
                 ? this.props.buttonNumberComponent(
-                  "0",
+                  "p",
                   this.onPressButtonNumber
                 )
-                : this.renderButtonNumber("0")}
+                : this.renderButtonNumber("p")}
             </Col>
             <Col
               style={[
