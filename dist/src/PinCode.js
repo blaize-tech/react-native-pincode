@@ -383,11 +383,9 @@ class PinCode extends React.PureComponent {
                             // this.props.styleEmptyColumn
                             styles.colButtonCircle,
                             this.props.styleColumnButtons
-                        ] },
-                        this.props.emptyColumnComponent
-                            ? this.props.emptyColumnComponent(this.props.launchTouchID)
-                            : null,
-                        React.createElement(react_native_1.Text, null, "sdsdfsdf")),
+                        ] }, this.props.emptyColumnComponent
+                        ? this.props.emptyColumnComponent(this.props.launchTouchID)
+                        : null),
                     React.createElement(react_native_easy_grid_1.Col, { style: [
                             styles.colButtonCircle,
                             this.props.styleColumnButtons
