@@ -703,7 +703,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
                 ? this.props.emptyColumnComponent(this.props.launchTouchID)
                 : null
               }
-              <Text>sdsdfsdf</Text>
+              {/*<Text>sdsdfsdf</Text>*/}
             </Col>
             <Col
               style={[
