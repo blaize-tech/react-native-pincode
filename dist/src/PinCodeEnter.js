@@ -67,8 +67,10 @@ class PinCodeEnter extends React.PureComponent {
         }
     }
     componentDidMount() {
-        if (!this.props.touchIDDisabled)
-            this.triggerTouchID();
+        setTimeout(() => {
+            if (!this.props.touchIDDisabled)
+                this.triggerTouchID();
+        }, 250);
     }
     componentDidUpdate(prevProps, prevState, prevContext) {
         if (prevProps.pinStatusExternal !== this.props.pinStatusExternal) {
