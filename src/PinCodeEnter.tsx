@@ -90,6 +90,7 @@ export interface IProps {
   passcodeFallback?: boolean
   vibrationEnabled?: boolean
   delayBetweenAttempts?: number
+  pinLocked: boolean
 }
 
 export interface IState {
@@ -135,11 +136,16 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
       this.setState({ pinCodeStatus: this.props.pinStatusExternal })
     }
     if (prevProps.touchIDDisabled && !this.props.touchIDDisabled) {
-      this.triggerTouchID()
+      setTimeout(()=>{
+        this.triggerTouchID();
+      }, 250);
     }
   }
 
   triggerTouchID() {
+    if (this.props.pinLocked) {
+      return;
+    }
     !!TouchID && TouchID.isSupported()
       .then(() => {
         setTimeout(() => {
