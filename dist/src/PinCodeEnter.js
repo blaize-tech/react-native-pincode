@@ -83,9 +83,6 @@ class PinCodeEnter extends React.PureComponent {
         }
     }
     triggerTouchID() {
-        if (this.props.pinLocked) {
-            return;
-        }
         !!react_native_touch_id_1.default && react_native_touch_id_1.default.isSupported()
             .then(() => {
             setTimeout(() => {
@@ -97,6 +94,9 @@ class PinCodeEnter extends React.PureComponent {
         });
     }
     async launchTouchID() {
+        if (this.props.pinLocked) {
+            return;
+        }
         const optionalConfigObject = {
             imageColor: '#e00606',
             imageErrorColor: '#ff0000',
