@@ -3,6 +3,7 @@ import { PinResultStatus } from "./src/utils";
 import * as React from "react";
 import { StyleProp, ViewStyle, TextStyle } from "react-native";
 export declare type IProps = {
+    emptyColumnComponent?: any;
     bottomLeftComponent?: any;
     buttonComponentLockedPage?: any;
     buttonDeleteComponent?: any;

@@ -9,6 +9,7 @@ import * as React from "react";
 import { View, StyleSheet, StyleProp, ViewStyle, TextStyle } from "react-native";
 
 export type IProps = {
+  emptyColumnComponent?: any
   bottomLeftComponent?: any
   buttonComponentLockedPage?: any
   buttonDeleteComponent?: any
