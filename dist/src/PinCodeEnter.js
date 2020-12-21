@@ -39,7 +39,7 @@ class PinCodeEnter extends React.PureComponent {
                     pinAttempts++;
                     if (+pinAttempts >= this.props.maxAttempts &&
                         !this.props.disableLockScreen) {
-                        await async_storage_1.default.setItem(this.props.timePinLockedAsyncStorageName, new Date().toISOString());
+                        await async_storage_1.default.setItem(this.props.timePinLockedAsyncStorageName, String(this.props.timeToLock));
                         this.setState({ locked: true, pinCodeStatus: utils_1.PinResultStatus.locked });
                         this.props.changeInternalStatus(utils_1.PinResultStatus.locked);
                     }

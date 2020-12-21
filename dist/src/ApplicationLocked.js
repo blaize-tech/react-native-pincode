@@ -94,33 +94,36 @@ class ApplicationLocked extends React.PureComponent {
                         : this.renderButton()))))));
         };
         this.state = {
-            timeDiff: 0
+            timeDiff: this.props.timeToLock
         };
         this.isUnmounted = false;
         this.timeLocked = 0;
-        this.timer = this.timer.bind(this);
         this.renderButton = this.renderButton.bind(this);
         this.renderTitle = this.renderTitle.bind(this);
     }
     componentDidMount() {
-        async_storage_1.default.getItem(this.props.timePinLockedAsyncStorageName).then(val => {
-            this.timeLocked = new Date(val ? val : "").getTime() + this.props.timeToLock;
-            this.timer();
+        async_storage_1.default.getItem(this.props.timePinLockedAsyncStorageName).then(async (val) => {
+            this.setState({
+                timeDiff: Number(val)
+            }, this.timer);
         });
     }
     async timer() {
-        const timeDiff = +new Date(this.timeLocked) - +new Date();
+        const timeDiff = +this.state.timeDiff - 1000;
         this.setState({ timeDiff: Math.max(0, timeDiff) });
         await delay_1.default(1000);
         if (timeDiff < 1000) {
             this.props.changeStatus(utils_1.PinResultStatus.initial);
-            async_storage_1.default.multiRemove([
+            await async_storage_1.default.multiRemove([
                 this.props.timePinLockedAsyncStorageName,
                 this.props.pinAttemptsAsyncStorageName
             ]);
         }
-        if (!this.isUnmounted) {
-            this.timer();
+        else {
+            await async_storage_1.default.setItem(this.props.timePinLockedAsyncStorageName, String(timeDiff));
+            if (!this.isUnmounted) {
+                this.timer();
+            }
         }
     }
     componentWillUnmount() {

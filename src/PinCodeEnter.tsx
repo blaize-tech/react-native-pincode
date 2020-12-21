@@ -90,6 +90,7 @@ export interface IProps {
   passcodeFallback?: boolean
   vibrationEnabled?: boolean
   delayBetweenAttempts?: number
+  timeToLock: number
 }
 
 export interface IState {
@@ -181,8 +182,8 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
           !this.props.disableLockScreen
         ) {
           await AsyncStorage.setItem(
-            this.props.timePinLockedAsyncStorageName,
-            new Date().toISOString()
+              this.props.timePinLockedAsyncStorageName,
+              String(this.props.timeToLock)
           )
           this.setState({ locked: true, pinCodeStatus: PinResultStatus.locked })
           this.props.changeInternalStatus(PinResultStatus.locked)

@@ -121,7 +121,7 @@ export type IState = {
 }
 
 const disableLockScreenDefault = false;
-const timePinLockedAsyncStorageNameDefault = "timePinLockedRNPin";
+const timePinLockedAsyncStorageNameDefault = "timePinLockedRNPC";
 const pinAttemptsAsyncStorageNameDefault = "pinAttemptsRNPin";
 const pinCodeKeychainNameDefault = "reactNativePinCode";
 const touchIDDisabledDefault = false;
@@ -324,6 +324,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
             touchIDTitle={this.props.touchIDTitle || touchIDTitleDefault}
             vibrationEnabled={this.props.vibrationEnabled}
             delayBetweenAttempts={this.props.delayBetweenAttempts}
+            timeToLock={this.props.timeLocked || 300000}
           />}
         {(pinStatus === PinResultStatus.locked ||
           this.state.internalPinStatus === PinResultStatus.locked ||
