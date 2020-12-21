@@ -325,6 +325,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
             vibrationEnabled={this.props.vibrationEnabled}
             delayBetweenAttempts={this.props.delayBetweenAttempts}
             timeToLock={this.props.timeLocked || 300000}
+            pinLocked={this.state.pinLocked}
           />}
         {(pinStatus === PinResultStatus.locked ||
           this.state.internalPinStatus === PinResultStatus.locked ||

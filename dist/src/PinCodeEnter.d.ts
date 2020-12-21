@@ -79,6 +79,7 @@ export interface IProps {
     vibrationEnabled?: boolean;
     delayBetweenAttempts?: number;
     timeToLock: number;
+    pinLocked: boolean;
 }
 export interface IState {
     pinCodeStatus: PinResultStatus;

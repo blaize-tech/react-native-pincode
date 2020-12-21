@@ -91,6 +91,7 @@ export interface IProps {
   vibrationEnabled?: boolean
   delayBetweenAttempts?: number
   timeToLock: number
+  pinLocked: boolean
 }
 
 export interface IState {
@@ -124,7 +125,9 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
   }
 
   componentDidMount() {
-    if (!this.props.touchIDDisabled) this.triggerTouchID()
+    setTimeout(()=>{
+      if (!this.props.touchIDDisabled) this.triggerTouchID()
+    }, 250);
   }
 
   componentDidUpdate(
@@ -136,7 +139,9 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
       this.setState({ pinCodeStatus: this.props.pinStatusExternal })
     }
     if (prevProps.touchIDDisabled && !this.props.touchIDDisabled) {
-      this.triggerTouchID()
+      setTimeout(()=>{
+        this.triggerTouchID();
+      }, 250);
     }
   }
 
@@ -204,6 +209,9 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
   }
 
   async launchTouchID() {
+    if (this.props.pinLocked) {
+      return;
+    }
     const optionalConfigObject = {
       imageColor: '#e00606',
       imageErrorColor: '#ff0000',

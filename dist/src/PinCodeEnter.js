@@ -67,15 +67,19 @@ class PinCodeEnter extends React.PureComponent {
         }
     }
     componentDidMount() {
-        if (!this.props.touchIDDisabled)
-            this.triggerTouchID();
+        setTimeout(() => {
+            if (!this.props.touchIDDisabled)
+                this.triggerTouchID();
+        }, 250);
     }
     componentDidUpdate(prevProps, prevState, prevContext) {
         if (prevProps.pinStatusExternal !== this.props.pinStatusExternal) {
             this.setState({ pinCodeStatus: this.props.pinStatusExternal });
         }
         if (prevProps.touchIDDisabled && !this.props.touchIDDisabled) {
-            this.triggerTouchID();
+            setTimeout(() => {
+                this.triggerTouchID();
+            }, 250);
         }
     }
     triggerTouchID() {
@@ -90,6 +94,9 @@ class PinCodeEnter extends React.PureComponent {
         });
     }
     async launchTouchID() {
+        if (this.props.pinLocked) {
+            return;
+        }
         const optionalConfigObject = {
             imageColor: '#e00606',
             imageErrorColor: '#ff0000',
